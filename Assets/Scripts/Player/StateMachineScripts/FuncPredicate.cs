@@ -2,6 +2,9 @@ using System;
 
 namespace Player.StateMachineScripts
 {
+    /*
+     * Condition to switch between states
+     */
     public class FuncPredicate : IPredicate
     {
         readonly Func<bool> func;

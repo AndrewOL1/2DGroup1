@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player.StateMachineScripts.States
 {
+    /*
+     * Jump State calls jump
+     */
     public class JumpState : BaseState
     {
         public JumpState(PlayerController player, Animator animator) : base(player, animator)

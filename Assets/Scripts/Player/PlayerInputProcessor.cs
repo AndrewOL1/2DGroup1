@@ -4,6 +4,9 @@ namespace Player
 {
     public class PlayerInputProcessor
     {
+        /*
+         * Handle InputReaders fucntion to Player Controller
+         */
         InputReader _input;
         public float Horizontal;
         public bool IsJumping;

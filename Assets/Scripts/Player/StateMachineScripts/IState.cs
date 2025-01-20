@@ -1,6 +1,9 @@
 
 namespace Player.StateMachineScripts
 {
+    /*
+     * Interface for states
+     */
     public interface IState 
     {
         void OnEnter();

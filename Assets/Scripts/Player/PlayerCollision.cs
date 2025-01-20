@@ -1,3 +1,5 @@
+using System;
+using Spline;
 using UnityEngine;
 
 namespace Player
@@ -10,7 +12,13 @@ namespace Player
         [SerializeField] float groundDistance;
         [SerializeField] bool groundGizmoz;
         [SerializeField] PlayerController player;
-        
+        public int nextPosition;
+        PlayerLocomotion playerLocomotion;
+
+        public void setPlayerLocomotion(PlayerLocomotion playerLocomotion)
+        {
+            this.playerLocomotion = playerLocomotion;
+        }
         public bool Ground => Physics.Raycast(groundCheck.position, Vector3.down, groundDistance, groundLayer);
         
         private void OnDrawGizmos()
@@ -21,6 +29,14 @@ namespace Player
                 else { Gizmos.color = Color.red; }
 
                 Gizmos.DrawRay(groundCheck.position, Vector3.down * groundDistance);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Spline"))
+            {
+                playerLocomotion.UpdatePositionTargets(other.GetComponent<SplineTrigger>().positionNumber);
             }
         }
     }

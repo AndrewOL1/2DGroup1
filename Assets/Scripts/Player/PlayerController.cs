@@ -1,10 +1,23 @@
 using System;
+using Dreamteck.Splines;
 using Player.StateMachineScripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
+    /*
+     * This Player controller is using a state machine to handle conditions. The States are held and made in the StateCollection.
+     * The input is handled in PlayerInputProcessor and InputReader(This removes unneeded data from the default new InputSystem)
+     * The PlayerConfinuration/playerData hold all player values
+     * The PlayerCollision handle the collision of the player
+     *
+     * Init
+     * State machine and the state collection
+     * MUST DEFINE STATE TRANSITIONS IN AWAKE
+     * At(from,to,condition)
+     * Any(to,condition)
+     */
     public class PlayerController : MonoBehaviour
     {
        # region Variables
@@ -19,6 +32,11 @@ namespace Player
        [SerializeField] private Animator animator;
        [SerializeField] private PlayerCollision playerCollision;
        
+       [Header("Splines")]
+       [SerializeField] private  SplineComputer groundSpline;
+       [SerializeField] private  SplineComputer airSpline;
+       [SerializeField] private  SplineTracer splineTracer;
+       
        
        #endregion
 
@@ -27,7 +45,8 @@ namespace Player
            _stateMachine = new StateMachine();
            _states = new StateCollection(this,animator,playerData);
            InputProcessor = new PlayerInputProcessor(inputReader);
-           PlayerLocomotion = new PlayerLocomotion(rb, playerData);
+           PlayerLocomotion = new PlayerLocomotion(rb, playerData,groundSpline);
+           playerCollision.setPlayerLocomotion(PlayerLocomotion);
            //define transitions
            At(_states.jumpState,_states.locomotionState, new FuncPredicate(()=> playerCollision.Ground));
            At(_states.locomotionState,_states.jumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));

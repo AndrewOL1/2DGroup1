@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Player.StateMachineScripts.States
 {
+    /*
+     * The Base of all States
+     */
     public abstract class BaseState : IState
     {
         protected readonly PlayerController player;
