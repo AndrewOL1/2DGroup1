@@ -26,7 +26,7 @@ public class Dialogue
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-
+    public bool onTriggerEnter;
     public void TriggerDialogue()
     {
         DialogueManager.instance.StartDialogue(dialogue);
@@ -34,10 +34,13 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (onTriggerEnter)
         {
-            Debug.Log("Colliding With Player");
-            TriggerDialogue();
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Colliding With Player");
+                TriggerDialogue();
+            }
         }
     }
 }
