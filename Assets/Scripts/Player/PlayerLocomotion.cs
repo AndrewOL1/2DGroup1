@@ -10,7 +10,8 @@ namespace Player
          */
         #region Variables
         private Rigidbody rb;
-        PlayerConfiguration playerconfig; 
+        PlayerConfiguration playerconfig;
+        private SplineFollower follower;
         //Spline
         private  SplineComputer groundSpline; 
         private Vector3 nextSplinePoint;
@@ -18,6 +19,9 @@ namespace Player
         private int splinePointCount;
         private int totalSplinePointCount;
         private bool rightDirection=true;
+        public bool canMoveForward=true;
+        //interact
+        public DialogueTrigger interactingObject;
         
         #endregion
         public PlayerLocomotion(Rigidbody rb, PlayerConfiguration playerconfig,SplineComputer groundSpline)
@@ -25,6 +29,7 @@ namespace Player
             this.rb = rb;
             this.playerconfig = playerconfig;
             this.groundSpline = groundSpline;
+            follower = rb.GetComponent<SplineFollower>();
             StartPos();
         }
 
@@ -40,25 +45,53 @@ namespace Player
         public void GroundedVelocityMovement(float velocityInput)
         {
             Gravity(playerconfig.gravity);
-            Vector2 normal;
-            float temp = velocityInput*playerconfig.groundedMoveSpeed;
-            Mathf.Clamp(temp,-playerconfig.maxSpeed,playerconfig.maxSpeed);
-            if (temp > 0)
-            { 
-                normal=new Vector2(nextSplinePoint.x, nextSplinePoint.z)-new Vector2(rb.transform.position.x, rb.transform.position.z); 
-                rightDirection = true;
-            }
-            else if (temp < 0)
+            if (canMoveForward)
             {
-                normal=new Vector2(rb.transform.position.x, rb.transform.position.z)-new Vector2(lastSplinePoint.x, lastSplinePoint.z);
-                rightDirection=false;
+                float temp = velocityInput * playerconfig.groundedMoveSpeed;
+                temp = Mathf.Clamp(temp, -playerconfig.maxSpeed, playerconfig.maxSpeed);
+                if (temp > 0)
+                {
+                    rightDirection = true;
+                }
+                else if (temp < 0)
+                {
+                    rightDirection = false;
+                }
+
+                follower.followSpeed = temp;
             }
             else
             {
-                normal=Vector2.zero;
+                if (rightDirection)
+                {
+                    if (velocityInput > 0)
+                    {
+                        float temp = velocityInput * playerconfig.groundedMoveSpeed;
+                        temp = Mathf.Clamp(temp, -playerconfig.maxSpeed, playerconfig.maxSpeed);
+                        rightDirection = false;
+                        follower.followSpeed = temp;
+                    }
+                    else
+                    {
+                        follower.followSpeed = 0;
+                    }
+
+                }
+                else
+                {
+                    if (velocityInput < 0)
+                    {
+                        float temp = velocityInput * playerconfig.groundedMoveSpeed;
+                        temp = Mathf.Clamp(temp, -playerconfig.maxSpeed, playerconfig.maxSpeed);
+                        rightDirection = true;
+                        follower.followSpeed = temp;
+                    }
+                    else
+                    {
+                        follower.followSpeed = 0;
+                    }
+                }
             }
-            normal.Normalize();
-            rb.velocity = new Vector3(normal.x*temp, rb.velocity.y, normal.y*temp);
         }
 
         public void JumpingVelocityMovement(float startTime)
@@ -71,23 +104,12 @@ namespace Player
         public void Idle()
         {
             Gravity(playerconfig.gravity);
+            follower.followSpeed = 0;
         }
 
-        public void UpdatePositionTargets(int next)
+        public void StartDialogue()
         {
-            splinePointCount=next;
-            if (splinePointCount == totalSplinePointCount || totalSplinePointCount == 0)
-                return;
-            if (rightDirection)
-            {
-                lastSplinePoint = groundSpline.GetPointPosition(next);
-                nextSplinePoint = groundSpline.GetPointPosition(next + 1);
-            }
-            else
-            {
-                lastSplinePoint = groundSpline.GetPointPosition(next-1);
-                nextSplinePoint = groundSpline.GetPointPosition(next);
-            }
+            interactingObject.TriggerDialogue();
         }
         #region PrivateLocomotionFucntions
         private void Gravity(float gravity)

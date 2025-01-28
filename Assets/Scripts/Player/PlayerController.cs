@@ -25,6 +25,7 @@ namespace Player
        public PlayerInputProcessor InputProcessor;
        StateMachine _stateMachine;
        public PlayerLocomotion PlayerLocomotion;
+       public bool triggerDialogue;
 
        [SerializeField] private Rigidbody rb;
        [SerializeField] private InputReader inputReader;
@@ -48,14 +49,21 @@ namespace Player
            PlayerLocomotion = new PlayerLocomotion(rb, playerData,groundSpline);
            playerCollision.setPlayerLocomotion(PlayerLocomotion);
            //define transitions
-           At(_states.jumpState,_states.locomotionState, new FuncPredicate(()=> playerCollision.Ground));
-           At(_states.locomotionState,_states.jumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
-           At(_states.locomotionState,_states.idleState, new FuncPredicate(()=> rb.velocity.z < 0.5f&&InputProcessor.Horizontal==0));
-           At(_states.idleState,_states.locomotionState, new FuncPredicate(()=> InputProcessor.Horizontal!=0));
-           At(_states.idleState,_states.jumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
-           At(_states.jumpState,_states.idleState, new FuncPredicate(()=> InputProcessor.Horizontal==0&&playerCollision.Ground));
+           At(_states.JumpState,_states.LocomotionState, new FuncPredicate(()=> playerCollision.Ground));
+           At(_states.LocomotionState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
+           At(_states.LocomotionState,_states.IdleState, new FuncPredicate(()=> rb.velocity.z < 0.5f&&InputProcessor.Horizontal==0));
+           At(_states.IdleState,_states.LocomotionState, new FuncPredicate(()=> InputProcessor.Horizontal!=0));
+           At(_states.IdleState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
+           At(_states.JumpState,_states.IdleState, new FuncPredicate(()=> InputProcessor.Horizontal==0&&playerCollision.Ground));
+           
+           At(_states.IdleState,_states.DialogueState, new FuncPredicate(()=> triggerDialogue));
+           At(_states.LocomotionState,_states.DialogueState, new FuncPredicate(()=> triggerDialogue));
+           At(_states.IdleState,_states.DialogueState, new FuncPredicate(()=> InputProcessor.IsInteracting && playerCollision.InIteractable));
+           At(_states.LocomotionState,_states.DialogueState, new FuncPredicate(()=> InputProcessor.IsInteracting && playerCollision.InIteractable));
+           
+           At(_states.DialogueState,_states.IdleState, new FuncPredicate(()=> !DialogueManager.instance.isDialogueActive));
            //inital state
-           _stateMachine.SetState(_states.idleState);
+           _stateMachine.SetState(_states.IdleState);
        }
        void At(IState from, IState to, IPredicate condition) => _stateMachine.AddTransition(from, to, condition);
        void Any(IState to, IPredicate condition) => _stateMachine.AddAnyTransition(to, condition);

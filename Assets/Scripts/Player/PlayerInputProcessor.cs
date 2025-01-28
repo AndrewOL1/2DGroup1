@@ -11,6 +11,7 @@ namespace Player
         public float Horizontal;
         public bool IsJumping;
         public float JumpTime;
+        public bool IsInteracting;
 
         public PlayerInputProcessor(InputReader input)
         {
@@ -19,8 +20,20 @@ namespace Player
             _input.JumpEvent += HandleJump;
             _input.JumpCanceledEvent += HandleCancelledJump;
             _input.PauseEvent += HandlePause;
+            _input.InteractEvent += HandleInteract;
+            _input.InteractCanceledEvent += HandleCancelledInteract;
         }
+        
+
         #region Handlers
+        private void HandleInteract()
+        {
+            IsInteracting = true;
+        }
+        private void HandleCancelledInteract()
+        {
+            IsInteracting = false;
+        }
         private void HandlePause()
         {
             throw new System.NotImplementedException();//later

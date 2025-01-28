@@ -36,6 +36,7 @@ public class InputReader : ScriptableObject, UserInput.IPausedActions, UserInput
     public event Action PauseEvent;
     public event Action UnpauseEvent;
     public event Action InteractEvent;
+    public event Action InteractCanceledEvent;
     
 
     void UserInput.IPausedActions.OnLocomation(InputAction.CallbackContext context)
@@ -70,6 +71,11 @@ public class InputReader : ScriptableObject, UserInput.IPausedActions, UserInput
         if (context.phase == InputActionPhase.Performed)
         {
             InteractEvent?.Invoke();
+        }
+
+        if (context.phase == InputActionPhase.Canceled)
+        {
+            InteractCanceledEvent?.Invoke();
         }
     }
 

@@ -20,5 +20,8 @@ namespace Player
 
         [Header("Spline Values")] 
         public Vector3 offset;
+        
+        [Header("Interaction Values")]
+        public GameObject interactionObject;
     }
 }

@@ -5,17 +5,19 @@ namespace Player.StateMachineScripts
 {
     public class StateCollection
     {
-        public IdleState idleState { get; private set; }
+        public IdleState IdleState { get; private set; }
         
-        public LocomotionState locomotionState { get; private set; }
+        public LocomotionState LocomotionState { get; private set; }
         
-        public JumpState jumpState { get; private set; }
+        public JumpState JumpState { get; private set; }
+        public DialogueState DialogueState { get; private set; }
 
         public StateCollection(PlayerController playerController, Animator animator,PlayerConfiguration playerConfiguration)
         { 
-            idleState = new IdleState(playerController, animator);
-            locomotionState = new LocomotionState(playerController, animator);
-            jumpState  = new JumpState(playerController, animator);
+            IdleState = new IdleState(playerController, animator);
+            LocomotionState = new LocomotionState(playerController, animator);
+            JumpState  = new JumpState(playerController, animator);
+            DialogueState = new DialogueState(playerController, animator);
         }
     }
 }
