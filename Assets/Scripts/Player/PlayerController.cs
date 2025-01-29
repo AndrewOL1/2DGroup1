@@ -28,15 +28,10 @@ namespace Player
        public bool triggerDialogue;
 
        [SerializeField] private Rigidbody rb;
-       [SerializeField] private InputReader inputReader;
+       [SerializeField] private InputReader.InputReader inputReader;
        [SerializeField] private PlayerConfiguration playerData;
        [SerializeField] private Animator animator;
        [SerializeField] private PlayerCollision playerCollision;
-       
-       [Header("Splines")]
-       [SerializeField] private  SplineComputer groundSpline;
-       [SerializeField] private  SplineComputer airSpline;
-       [SerializeField] private  SplineTracer splineTracer;
        
        
        #endregion
@@ -46,8 +41,8 @@ namespace Player
            _stateMachine = new StateMachine();
            _states = new StateCollection(this,animator,playerData);
            InputProcessor = new PlayerInputProcessor(inputReader);
-           PlayerLocomotion = new PlayerLocomotion(rb, playerData,groundSpline);
-           playerCollision.setPlayerLocomotion(PlayerLocomotion);
+           PlayerLocomotion = new PlayerLocomotion(rb, playerData);
+           playerCollision.SetPlayerLocomotion(PlayerLocomotion);
            //define transitions
            At(_states.JumpState,_states.LocomotionState, new FuncPredicate(()=> playerCollision.Ground));
            At(_states.LocomotionState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));

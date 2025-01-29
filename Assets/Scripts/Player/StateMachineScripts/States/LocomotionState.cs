@@ -1,3 +1,4 @@
+using Dreamteck.Splines;
 using UnityEngine;
 
 namespace Player.StateMachineScripts.States
@@ -20,6 +21,11 @@ namespace Player.StateMachineScripts.States
         public override void FixedUpdate()
         {
             player.PlayerLocomotion.GroundedVelocityMovement(player.InputProcessor.Horizontal);
+        }
+
+        public override void Update()
+        {
+            //player.PlayerLocomotion.GroundedVelocityMovement(player.InputProcessor.Horizontal);
         }
     }
 }

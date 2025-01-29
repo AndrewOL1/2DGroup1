@@ -17,9 +17,6 @@ namespace Player
         [Header("Jump Values")]
         public float jumpForce;
         public float maxJumpTime;
-
-        [Header("Spline Values")] 
-        public Vector3 offset;
         
         [Header("Interaction Values")]
         public GameObject interactionObject;

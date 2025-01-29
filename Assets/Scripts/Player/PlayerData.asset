@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968af496cbc0dd340a8b0a01a5f69e7a, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  groundedMoveSpeed: 8
+  groundedMoveSpeed: 6
   maxSpeed: 5
   gravity: 3
   jumpForce: 5
   maxJumpTime: 2
-  offset: {x: 0, y: 5, z: 0}
+  interactionObject: {fileID: 0}

@@ -279,6 +279,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "c463ffd8-8a47-4d2c-a5e9-fe68af12fd49",
+            "actions": [
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "dcb496cf-32dc-408f-b2be-1912518b1d23",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "18e3df7a-5a09-4be9-a711-ec91e4c3877b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

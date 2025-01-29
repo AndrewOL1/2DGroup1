@@ -7,13 +7,14 @@ namespace Player
         /*
          * Handle InputReaders fucntion to Player Controller
          */
-        InputReader _input;
+        InputReader.InputReader _input;
         public float Horizontal;
         public bool IsJumping;
         public float JumpTime;
         public bool IsInteracting;
+        public bool NextDialogue=false;
 
-        public PlayerInputProcessor(InputReader input)
+        public PlayerInputProcessor(InputReader.InputReader input)
         {
             this._input = input;
             _input.MoveEvent += HandleMove;
@@ -22,10 +23,23 @@ namespace Player
             _input.PauseEvent += HandlePause;
             _input.InteractEvent += HandleInteract;
             _input.InteractCanceledEvent += HandleCancelledInteract;
+            _input.ContinueEvent += HandleContinue;
+            //_input.ContinueCanceledEvent += HandleCancelledContinue;
         }
-        
+
 
         #region Handlers
+        private void HandleContinue()
+        {
+            Debug.Log("Continue");
+            NextDialogue=true;
+        }
+        /*
+        private void HandleCancelledContinue()
+        {
+            NextDialogue=false;
+        }
+        */
         private void HandleInteract()
         {
             IsInteracting = true;
@@ -53,6 +67,16 @@ namespace Player
         {
             Horizontal = obj;
         }
+        #endregion
+        #region Active Control Scheme
+        public void SetGameplay()=>_input.SetGameplay();
+        public void SetPaused()=> _input.SetPaused();
+
+        public void SetDialogue()
+        {
+            _input.SetDialogue();
+        }
+
         #endregion
     }
 }
