@@ -16,5 +16,8 @@ MonoBehaviour:
   maxSpeed: 5
   gravity: 3
   jumpForce: 5
-  maxJumpTime: 2
+  maxJumpTime: 0.5
   interactionObject: {fileID: 0}
+  lastCheckpoint: {x: 8.58, y: -3, z: 0}
+  RespawnTime: 2
+  IsDead: 0

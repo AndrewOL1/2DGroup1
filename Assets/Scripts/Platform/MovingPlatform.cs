@@ -1,19 +1,20 @@
+using System;
 using UnityEngine;
 
 namespace Platform
 {
     public class MovingPlatform : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private void OnTriggerEnter(Collider other)
         {
-        
+            if(other.CompareTag("Player"))
+                other.transform.parent = transform;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnTriggerExit(Collider other)
         {
-        
+            if(other.CompareTag("Player"))
+                other.transform.parent = null;
         }
     }
 }

@@ -39,7 +39,13 @@ namespace Player
                 InIteractable = true;
                 playerLocomotion.interactingObject=other.GetComponent<DialogueTrigger>();
             }
-            
+            if(other.CompareTag("Checkpoint"))
+                player.playerData.lastCheckpoint = other.transform.position;
+            if (other.CompareTag("Death"))
+                player.playerData.IsDead = true;
+
+                
+
         }
 
         private void OnTriggerExit(Collider other)

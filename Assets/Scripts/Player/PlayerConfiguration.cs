@@ -20,5 +20,9 @@ namespace Player
         
         [Header("Interaction Values")]
         public GameObject interactionObject;
+        [Header("lastCheckpoint")]
+        public Vector3 lastCheckpoint;
+        public float RespawnTime;
+        public bool IsDead;
     }
 }

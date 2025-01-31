@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spline
   - Interactable
+  - Checkpoint
+  - Death
   layers:
   - Default
   - TransparentFX
