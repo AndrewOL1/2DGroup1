@@ -57,6 +57,10 @@ namespace Player
            At(_states.LocomotionState,_states.DialogueState, new FuncPredicate(()=> InputProcessor.IsInteracting && playerCollision.InIteractable));
            
            At(_states.DialogueState,_states.IdleState, new FuncPredicate(()=> !DialogueManager.instance.isDialogueActive));
+
+           Any(_states.RespawnState, new FuncPredicate(()=> playerData.IsDead));
+
+            At(_states.RespawnState, _states.IdleState, new FuncPredicate(() => playerData.IsDead == false));
            //inital state
            _stateMachine.SetState(_states.IdleState);
        }

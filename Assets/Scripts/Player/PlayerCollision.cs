@@ -41,7 +41,11 @@ namespace Player
             }
             if(other.CompareTag("Checkpoint"))
                 player.playerData.lastCheckpoint = other.transform.position;
-            
+            if (other.CompareTag("Death"))
+                player.playerData.IsDead = true;
+
+                
+
         }
 
         private void OnTriggerExit(Collider other)
