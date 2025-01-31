@@ -29,7 +29,7 @@ namespace Player
 
        [SerializeField] private Rigidbody rb;
        [SerializeField] private InputReader.InputReader inputReader;
-       [SerializeField] private PlayerConfiguration playerData;
+       public PlayerConfiguration playerData;
        [SerializeField] private Animator animator;
        [SerializeField] private PlayerCollision playerCollision;
        

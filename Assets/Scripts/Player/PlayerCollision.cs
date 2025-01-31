@@ -39,6 +39,8 @@ namespace Player
                 InIteractable = true;
                 playerLocomotion.interactingObject=other.GetComponent<DialogueTrigger>();
             }
+            if(other.CompareTag("Checkpoint"))
+                player.playerData.lastCheckpoint = other.transform.position;
             
         }
 
