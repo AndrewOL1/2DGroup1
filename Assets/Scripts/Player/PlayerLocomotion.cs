@@ -1,4 +1,6 @@
 using Dreamteck.Splines;
+using Dreamteck.Splines.Editor;
+using Platform;
 using UnityEngine;
 
 namespace Player
@@ -55,6 +57,10 @@ namespace Player
         public void StartDialogue()
         {
             interactingObject.TriggerDialogue();
+            if (interactingObject.GetComponent<SpawnMoveablePlatform>() != null)
+            {
+                interactingObject.GetComponent<SpawnMoveablePlatform>().Spawn();
+            }
         }
 
         public void DialogueUpdate(bool newDialogue)
