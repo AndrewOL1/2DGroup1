@@ -12,17 +12,18 @@ namespace Ui
         {
             mainCamera = Camera.main;
             sizeX=GetComponent<SpriteRenderer>().bounds.size.x;
+            xPosition = transform.position.x;
         }
 
         private void FixedUpdate()
         {
-            //float displacement = mainCamera.transform.position.x *(1-ParallaxSpeed);
-            transform.position = new Vector3(xPosition+(mainCamera.transform.position.x * ParallaxSpeed),transform.position.y,transform.position.z);
+            float displacement = mainCamera.transform.position.x *(1-ParallaxSpeed);
+            transform.position = new Vector3(xPosition + (mainCamera.transform.position.x * ParallaxSpeed)+sizeX,transform.position.y,transform.position.z);
 
-           // if (displacement > xPosition + sizeX)
-                //xPosition += sizeX;
-            //if (displacement < xPosition + sizeX)
-                //xPosition -= sizeX;
+           if (displacement > xPosition + sizeX)
+                xPosition += sizeX;
+            if (displacement < xPosition + sizeX)
+                xPosition -= sizeX;
         }
     }
 }
