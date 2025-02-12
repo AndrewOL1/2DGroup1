@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
 
+    public GameObject dialogueBox;
     public Image characterIcon;
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
@@ -83,6 +85,6 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
+
     }
 }
