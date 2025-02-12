@@ -12,6 +12,7 @@ namespace Player.StateMachineScripts
         public JumpState JumpState { get; private set; }
         public DialogueState DialogueState { get; private set; }
         public RespawningState RespawnState { get; private set; }
+        public AirLocomotionState AirLocomotionState { get; private set; }
 
         public StateCollection(PlayerController playerController, Animator animator,PlayerConfiguration playerConfiguration)
         { 
@@ -20,6 +21,7 @@ namespace Player.StateMachineScripts
             JumpState  = new JumpState(playerController, animator);
             DialogueState = new DialogueState(playerController, animator);
             RespawnState = new RespawningState(playerController,animator);
+            AirLocomotionState = new AirLocomotionState(playerController, animator);
         }
     }
 }

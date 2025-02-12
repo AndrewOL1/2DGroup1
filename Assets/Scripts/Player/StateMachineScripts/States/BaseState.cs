@@ -10,8 +10,10 @@ namespace Player.StateMachineScripts.States
         protected readonly PlayerController player;
         protected readonly Animator animator;
         
-        protected static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
-        protected static readonly int JumpHash = Animator.StringToHash("Locomotion");
+        protected static readonly int LocomotionHash = Animator.StringToHash("cat_walk_left");
+        protected static readonly int JumpHash = Animator.StringToHash("Jump");
+        protected static readonly int FallHash = Animator.StringToHash("Fall");
+        protected static readonly int IdleHash = Animator.StringToHash("Idle");
 
         protected const float crossFadeDuration = 0.1f;
 

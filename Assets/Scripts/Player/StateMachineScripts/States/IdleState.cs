@@ -11,9 +11,15 @@ namespace Player.StateMachineScripts.States
         {
         }
 
+        public override void OnEnter()
+        {
+            animator.CrossFade(IdleHash,crossFadeDuration);
+        }
+
         public override void FixedUpdate()
         {
             player.PlayerLocomotion.Idle();
         }
+        
     }
 }

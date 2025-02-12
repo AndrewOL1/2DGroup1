@@ -13,7 +13,7 @@ namespace Player
         #region Variables
         private Rigidbody rb;
         PlayerConfiguration playerconfig; 
-        private bool rightDirection=true;
+        public bool rightDirection=true;
         //interact
         public DialogueTrigger interactingObject;
         

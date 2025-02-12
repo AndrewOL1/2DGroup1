@@ -10,6 +10,7 @@ namespace Player.StateMachineScripts.States
 
         public override void OnEnter()
         {
+            animator.CrossFade(IdleHash,crossFadeDuration);
             player.PlayerLocomotion.ZeroVelocity();
             if (player.triggerDialogue == true)
             {
