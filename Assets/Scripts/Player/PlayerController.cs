@@ -46,10 +46,10 @@ namespace Player
            PlayerLocomotion = new PlayerLocomotion(rb, playerData);
            playerCollision.SetPlayerLocomotion(PlayerLocomotion);
            //define transitions
-           At(_states.LocomotionState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
+           At(_states.LocomotionState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.coyoteTimer>=0));
            At(_states.LocomotionState,_states.IdleState, new FuncPredicate(()=> rb.velocity.z < 0.5f&&InputProcessor.Horizontal==0));
            At(_states.IdleState,_states.LocomotionState, new FuncPredicate(()=> InputProcessor.Horizontal!=0));
-           At(_states.IdleState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
+           At(_states.IdleState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.coyoteTimer>=0));
            At(_states.JumpState,_states.AirLocomotionState, new FuncPredicate(()=> delayB));
            At(_states.AirLocomotionState,_states.IdleState, new FuncPredicate(()=> playerCollision.Ground));
            
