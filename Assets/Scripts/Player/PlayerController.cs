@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Dreamteck.Splines;
 using Player.StateMachineScripts;
 using UnityEngine;
@@ -32,8 +33,9 @@ namespace Player
        public PlayerConfiguration playerData;
        [SerializeField] private Animator animator;
        [SerializeField] private PlayerCollision playerCollision;
-       
-       
+       private SpriteRenderer spriteRenderer;
+
+       public bool delayB;
        #endregion
 
        private void Awake()
@@ -44,12 +46,12 @@ namespace Player
            PlayerLocomotion = new PlayerLocomotion(rb, playerData);
            playerCollision.SetPlayerLocomotion(PlayerLocomotion);
            //define transitions
-           At(_states.JumpState,_states.LocomotionState, new FuncPredicate(()=> playerCollision.Ground));
            At(_states.LocomotionState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
            At(_states.LocomotionState,_states.IdleState, new FuncPredicate(()=> rb.velocity.z < 0.5f&&InputProcessor.Horizontal==0));
            At(_states.IdleState,_states.LocomotionState, new FuncPredicate(()=> InputProcessor.Horizontal!=0));
            At(_states.IdleState,_states.JumpState, new FuncPredicate(()=> InputProcessor.IsJumping&&playerCollision.Ground));
-           At(_states.JumpState,_states.IdleState, new FuncPredicate(()=> InputProcessor.Horizontal==0&&playerCollision.Ground));
+           At(_states.JumpState,_states.AirLocomotionState, new FuncPredicate(()=> delayB));
+           At(_states.AirLocomotionState,_states.IdleState, new FuncPredicate(()=> playerCollision.Ground));
            
            At(_states.IdleState,_states.DialogueState, new FuncPredicate(()=> triggerDialogue));
            At(_states.LocomotionState,_states.DialogueState, new FuncPredicate(()=> triggerDialogue));
@@ -63,6 +65,7 @@ namespace Player
             At(_states.RespawnState, _states.IdleState, new FuncPredicate(() => playerData.IsDead == false));
            //inital state
            _stateMachine.SetState(_states.IdleState);
+           spriteRenderer=animator.GetComponent<SpriteRenderer>();
        }
        void At(IState from, IState to, IPredicate condition) => _stateMachine.AddTransition(from, to, condition);
        void Any(IState to, IPredicate condition) => _stateMachine.AddAnyTransition(to, condition);
@@ -70,6 +73,10 @@ namespace Player
        private void Update()
        {
            _stateMachine.Update();
+           if(!PlayerLocomotion.rightDirection)
+               spriteRenderer.flipX = true;
+           else
+               spriteRenderer.flipX = false;
        }
        private void FixedUpdate()
        {
