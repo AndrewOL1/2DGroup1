@@ -17,6 +17,7 @@ namespace Player
         [Header("Jump Values")]
         public float jumpForce;
         public float maxJumpTime;
+        public float coyoteTime;
         
         [Header("Interaction Values")]
         public GameObject interactionObject;

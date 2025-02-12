@@ -13,7 +13,7 @@ namespace Player
         [SerializeField] bool groundGizmoz;
         [SerializeField] PlayerController player;
         
-        
+        public float coyoteTimer;
         public bool InIteractable;
         PlayerLocomotion playerLocomotion;
 
@@ -43,9 +43,6 @@ namespace Player
                 player.playerData.lastCheckpoint = other.transform.position;
             if (other.CompareTag("Death"))
                 player.playerData.IsDead = true;
-
-                
-
         }
 
         private void OnTriggerExit(Collider other)
@@ -54,6 +51,18 @@ namespace Player
             {
                 InIteractable = false;
                 playerLocomotion.interactingObject = null;
+            }
+        }
+
+        public void Update()
+        {
+            if (Ground)
+            {
+                coyoteTimer=player.playerData.coyoteTime;
+            }
+            else
+            {
+                coyoteTimer-=Time.deltaTime;
             }
         }
     }
