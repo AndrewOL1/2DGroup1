@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1636910959597231171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1379847907653549787}
+  - component: {fileID: 6239088309356487127}
+  - component: {fileID: 4853241508362302566}
+  - component: {fileID: 5259369177416579703}
+  - component: {fileID: 6354086473788952092}
+  m_Layer: 0
+  m_Name: Dialogue Trigger_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1379847907653549787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636910959597231171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 572.743, y: 316.31705, z: 83.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6239088309356487127
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636910959597231171}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &4853241508362302566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636910959597231171}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5259369177416579703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636910959597231171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bc0951eefff0f419988ba55a82b464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"Oh hey look, a snack for later, I should take it home."'
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"..."'
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"WAIT NO, I need help!" '
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"Eh? Why are you not flying around? Aren''t you one of those birds that
+        lives on top of my mansion? All those nests up there look pretty ugly" '
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"YES THAT''S ME! I got tired while flying with my family and fell pretty
+        hard" '
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"I''ve been trying to get up there but I can''t seem to find a way..."'
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"I think I broke my wing. My family must have not realized me being
+        gone." '
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"Well that''s a bummer..."'
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"Can you help me get back home? We are both going in the same direction."'
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"No, but I could eat you and end your suffering."'
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"WHAT?" '
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"Hmm, you are lucky I had a big lunch. I''ll tell you what, I''ll make
+        you a deal."'
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: '"If you can manage to get on me and hold on to your dear life, I''ll
+        let you have your free ride."'
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"But don''t think I''ll stop if you fall in the forest, the wolves will
+        have you for dinner and I am not trying to be dinner myself." '
+    - character:
+        name: Birdy
+        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+      line: (Sigh) "Ok I'll go I guess"
+    - character:
+        name: Cat
+        icon: {fileID: 21300000, guid: adda215d4304b6349b315611b27b9201, type: 3}
+      line: '"Great, well let''s go, it is getting dark."'
+  onTriggerEnter: 0
+  repeatable: 0
+--- !u!54 &6354086473788952092
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636910959597231171}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
