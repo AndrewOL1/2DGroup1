@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60176ad94aa43464bb7f595eca15abca
+guid: 120f2b4c99180734ca3626903947e760
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1001
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_0
+      name: Cat_Jumping_Bird_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 16
+        x: 146
+        y: 57
         width: 1083
-        height: 1052
+        height: 1047
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e1ea50891ff0214fb0b9fe68e0fee0a
-      internalID: -754665687
+      spriteID: 7fbe79d3ca90b5e4a895165971c444b1
+      internalID: -1195733206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_1
+      name: Cat_Jumping_Bird_1
       rect:
         serializedVersion: 2
-        x: 1152
-        y: 0
+        x: 1496
+        y: 57
+        width: 1042
+        height: 1068
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993e152356e4da646897f8d05367a193
+      internalID: -1231078693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_Jumping_Bird_2
+      rect:
+        serializedVersion: 2
+        x: 2902
+        y: 139
+        width: 1172
+        height: 1034
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2fb6510f01d5444393ff675c0014442
+      internalID: 1343279800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_Jumping_Bird_3
+      rect:
+        serializedVersion: 2
+        x: 4235
+        y: 22
+        width: 1272
+        height: 1171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1822d8a451c221a4dbda5bc57164d6d1
+      internalID: 1843358294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat_Jumping_Bird_4
+      rect:
+        serializedVersion: 2
+        x: 5846
+        y: 39
         width: 1083
-        height: 1076
+        height: 1048
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,92 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4f985494962dfd4ca8854f77bca4f59
-      internalID: 425663392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 2295
-        y: 15
-        width: 1096
-        height: 1029
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e12b3dfbd5d285b4cac5fe90fbac1818
-      internalID: -332829272
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 3435
-        y: 12
-        width: 1109
-        height: 1046
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 520f20e1ac78b434ea42a94bc0824287
-      internalID: 571830017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 4588
-        y: 8
-        width: 1090
-        height: 1049
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a19a8570af351a4db8e6c2c9eefab6c
-      internalID: 516425674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Anim_Walk Left_Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 5718
-        y: 12
-        width: 1083
-        height: 1042
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de84b4fdc7345d8429717e2d019f95cc
-      internalID: 2072369303
+      spriteID: be6172726066cf44a95a3bc88289b71f
+      internalID: -293510741
       vertices: []
       indices: 
       edges: []
@@ -225,7 +204,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8e1a370e91fc61d4d8fe1fd341a889e9
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -233,12 +212,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Anim_Walk Left_Sheet_0: -754665687
-      Anim_Walk Left_Sheet_1: 425663392
-      Anim_Walk Left_Sheet_2: -332829272
-      Anim_Walk Left_Sheet_3: 571830017
-      Anim_Walk Left_Sheet_4: 516425674
-      Anim_Walk Left_Sheet_5: 2072369303
+      Cat_Jumping_Bird_0: -1195733206
+      Cat_Jumping_Bird_1: -1231078693
+      Cat_Jumping_Bird_2: 1343279800
+      Cat_Jumping_Bird_3: 1843358294
+      Cat_Jumping_Bird_4: -293510741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
