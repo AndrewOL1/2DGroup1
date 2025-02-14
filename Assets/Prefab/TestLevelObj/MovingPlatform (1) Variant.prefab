@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4575235413123236015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13709573, g: 0.06448024, b: 0.6509434, a: 1}
+  m_Color: {r: 0.23584908, g: 0.099012114, b: 0.10981212, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _result.position.y
-      value: -3.77
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _finalResult.forward.x
@@ -750,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _finalResult.position.y
-      value: -3.77
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _clipToSample.position.x
@@ -758,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _clipToSample.position.y
-      value: -3.77
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _clipFromSample.forward.x
@@ -774,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4450323684720916369, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: _clipFromSample.position.y
-      value: -3.77
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4867494542477866756, guid: 8cefa4793ce71164b8214a6ff81f3824, type: 3}
       propertyPath: m_Layer
