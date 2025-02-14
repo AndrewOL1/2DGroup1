@@ -80,7 +80,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Birdy
-        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+        icon: {fileID: 21300000, guid: 6b923f39d372e3549864b3e8e5d06321, type: 3}
       line: '"I see the end of the forest! Go GO GO!"'
     - character:
         name: Cat

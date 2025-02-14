@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(IFadeOut(t));
     }
+    public void FadeOutEnd(float t)
+    {
+        StartCoroutine(IFadeOutE(t));
+    }
     private IEnumerator IFadeIn(float t)
     {
         float alpha = blackBackground.color.a;
@@ -48,5 +52,18 @@ public class GameManager : MonoBehaviour
             fadeColor.a = alpha;
             blackBackground.color = fadeColor;
         }
+    }
+    private IEnumerator IFadeOutE(float t)
+    {
+        float alpha = blackBackground.color.a;
+        Color fadeColor = blackBackground.color;
+        while (alpha < 1)
+        {
+            yield return new WaitForSeconds(0.01f);
+            alpha += 1 / (t * 60);
+            fadeColor.a = alpha;
+            blackBackground.color = fadeColor;
+        }
+        Destroy(GameObject.Find("Player").gameObject);
     }
 }

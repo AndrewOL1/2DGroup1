@@ -17,7 +17,8 @@ MonoBehaviour:
   gravity: 3
   jumpForce: 5
   maxJumpTime: 0.5
+  coyoteTime: 0.2
   interactionObject: {fileID: 0}
-  lastCheckpoint: {x: 45.54, y: -3, z: 0}
+  lastCheckpoint: {x: 72.1, y: -3, z: 0}
   RespawnTime: 2
   IsDead: 0

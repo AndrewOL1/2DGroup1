@@ -1,4 +1,5 @@
 using System;
+using Platform;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -38,6 +39,18 @@ namespace Player
             {
                 InIteractable = true;
                 playerLocomotion.interactingObject=other.GetComponent<DialogueTrigger>();
+                if (other.name == "Dialogue Trigger_2")
+                {
+                    other.GetComponent<AddBird>().Spawn();
+                }
+                if (other.name == "Dialogue Trigger_4")
+                {
+                    other.GetComponent<SpawnMoveablePlatform>().Spawn();
+                }
+                if (other.name == "Dialogue Trigger_5")
+                {
+                    other.GetComponent<End>().GameEnd();
+                }
             }
             if(other.CompareTag("Checkpoint"))
                 player.playerData.lastCheckpoint = other.transform.position;

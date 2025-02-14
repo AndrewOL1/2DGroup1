@@ -21,6 +21,7 @@ public class RespawningState : BaseState
     public override void OnExit()
     {
         GameManager.instance.FadeIn(player.playerData.RespawnTime);
+        player.InputProcessor.IsJumping = false;
     }
     IEnumerator Respawn(float s)
     {

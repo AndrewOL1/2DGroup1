@@ -36,6 +36,7 @@ namespace Player
        private SpriteRenderer spriteRenderer;
 
        public bool delayB;
+       public bool Bird=false;
        #endregion
 
        private void Awake()

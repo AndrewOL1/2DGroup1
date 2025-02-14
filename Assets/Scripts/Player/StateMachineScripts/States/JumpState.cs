@@ -14,7 +14,10 @@ namespace Player.StateMachineScripts.States
 
         public override void OnEnter()
         {
-            animator.CrossFade(JumpHash, crossFadeDuration);
+            if(player.Bird)
+                animator.CrossFade(BirdJumpHash, crossFadeDuration);
+            else
+                animator.CrossFade(JumpHash, crossFadeDuration);
             player.PlayerLocomotion.JumpingVelocityMovement(player.InputProcessor.JumpTime);
             player.StartCoroutine(delay());
         }

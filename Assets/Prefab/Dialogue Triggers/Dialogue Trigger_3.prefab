@@ -80,7 +80,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Birdy
-        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+        icon: {fileID: 21300000, guid: 6b923f39d372e3549864b3e8e5d06321, type: 3}
       line: '"Hey, you see that green thing there?"'
     - character:
         name: Cat
@@ -88,7 +88,7 @@ MonoBehaviour:
       line: '"Yeaa?"'
     - character:
         name: Birdy
-        icon: {fileID: 21300000, guid: 0eac61f9f9174514f8277357134a98c3, type: 3}
+        icon: {fileID: 21300000, guid: 6b923f39d372e3549864b3e8e5d06321, type: 3}
       line: '"I think you can bounce on it, maybe it will help you jump even HIGHER"'
     - character:
         name: Cat

@@ -10,7 +10,10 @@ namespace Player.StateMachineScripts.States
 
         public override void OnEnter()
         {
-            animator.CrossFade(IdleHash,crossFadeDuration);
+            if(player.Bird)
+                animator.CrossFade(BirdIdleHash,crossFadeDuration);
+            else    
+                animator.CrossFade(IdleHash,crossFadeDuration);
             player.PlayerLocomotion.ZeroVelocity();
             if (player.triggerDialogue == true)
             {
